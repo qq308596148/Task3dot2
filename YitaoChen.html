@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>TASK3.2</title>
+<script language=javascript> 
+//check what type of password
+function FontType(typenumber){ 
+if (typenumber>=30 && typenumber <=57) //number 
+return 1; 
+if (typenumber>=65 && typenumber <=90) //capitcal
+return 2; 
+if (typenumber>=97 && typenumber <=122) 
+return 4; 
+else 
+return 8;  
+} 
+//bitTotal 
+ 
+function bitTotal(num){ 
+PassWordType=0; 
+for (i=0;i<4;i++){ 
+if (num & 1) PassWordType++; 
+num>>>=1; 
+} 
+return PassWordType; 
+} 
+//return strength level 
+function checkStrong(Password){ 
+if (Password.length<=3) 
+return 0; //too short
+PassWordType=0; 
+for (i=0;i<Password.length;i++){ 
+//check what type of the password
+PassWordType|=FontType(Password.charCodeAt(i)); 
+} 
+return bitTotal(PassWordType); 
+} 
+ 
+//display color
+function pwStrength(PWStrengthLevel){ 
+White_Color="#ffffff"; 
+Red_Color="#ff1900"; 
+Orange_Color="#ffa805"; 
+Green_Color="#10cc23"; 
+if (PWStrengthLevel==null||PWStrengthLevel==''){ 
+Strong_color=mid_color=weak_color=White_Color; 
+} 
+else{ 
+S_level=checkStrong(PWStrengthLevel); 
+switch(S_level) { 
+case 0: 
+Strong_color=mid_color=weak_color=White_Color; 
+case 1: 
+Strong_color=Red_Color; 
+mid_color=weak_color=White_Color; 
+break; 
+case 2: 
+Strong_color=mid_color=Orange_Color; 
+weak_color=White_Color; 
+break; 
+default: 
+Strong_color=mid_color=weak_color=Green_Color; 
+} 
+} 
+document.getElementById("Level_3").style.background=Strong_color; 
+document.getElementById("Level_2").style.background=mid_color; 
+document.getElementById("Level_1").style.background=weak_color; 
+return; 
+} 
+</script>
+</head>
+<body> 
+<form name=form1 action="" > 
+Password:<input type=password size=20 onKeyUp=pwStrength(this.value) onBlur=pwStrength(this.value)> 
+<br>strength level of password: 
+<table width="205" border="1" cellspacing="0" cellpadding="1" bordercolor="#eeeeee" height="22" style='display:inline'> 
+<tr align="center" bgcolor="#f5f5f4"> 
+<td width="30%" id="Level_3">weak</td> 
+<td width="30%" id="Level_2">mid</td> 
+<td width="30%" id="Level_1">strong</td> 
+</tr> 
+</table> 
+</form>
+<p>If the browser version is too old, the color change may not be displayed，For example If using Microsoft Edge or Google Chrome should be fine</p>
+<p>Please use different types of characters to compose your password as much as possible, including symbols, uppercase and lowercase letters, and numbers.</p>
+<p>Yitao Chen task3.2 Password conditions matcher</p>
+</body>
+</html>
