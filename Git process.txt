@@ -1,0 +1,40 @@
+git init
+00752@DESKTOP-V78QFHF MINGW64 ~/OneDrive/Desktop/CalculatorYITAO
+$ git init
+Initialized empty Git repository in C:/Users/00752/OneDrive/Desktop/CalculatorYITAO/.git/
+
+00752@DESKTOP-V78QFHF MINGW64 ~/OneDrive/Desktop/CalculatorYITAO (master)
+$ git add .
+
+00752@DESKTOP-V78QFHF MINGW64 ~/OneDrive/Desktop/CalculatorYITAO (master)
+$ git commit -m "the html file for 3.2"
+[master (root-commit) 714883d] the html file for 3.2
+ 1 file changed, 87 insertions(+)
+ create mode 100644 YitaoChen.html
+
+00752@DESKTOP-V78QFHF MINGW64 ~/OneDrive/Desktop/CalculatorYITAO (master)
+$ git remote add origin git@github.com:qq308596148/Task3dot2.git
+
+00752@DESKTOP-V78QFHF MINGW64 ~/OneDrive/Desktop/CalculatorYITAO (master)
+$ git pull origin master
+The authenticity of host 'github.com (140.82.113.4)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'github.com' (RSA) to the list of known hosts.
+fatal: couldn't find remote ref master
+
+00752@DESKTOP-V78QFHF MINGW64 ~/OneDrive/Desktop/CalculatorYITAO (master)
+$ git push -u origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 1.23 KiB | 628.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:qq308596148/Task3dot2.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+00752@DESKTOP-V78QFHF MINGW64 ~/OneDrive/Desktop/CalculatorYITAO (master)
+$
